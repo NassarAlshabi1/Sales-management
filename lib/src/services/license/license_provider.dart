@@ -8,17 +8,17 @@ class LicenseProvider extends ChangeNotifier {
   final LicenseService _licenseService = LicenseService();
   final HardwareService _hardwareService = HardwareService();
 
-  LicenseStatus _status = LicenseStatus.notActivated;
+  LicenseStatus _status = LicenseStatus.valid;
   LicenseInfo? _licenseInfo;
   String _deviceFingerprint = '';
   Map<String, String> _deviceInfo = {};
-  int _trialDaysLeft = 0;
+  int _trialDaysLeft = 999;
 
   LicenseStatus get status => _status;
   LicenseInfo? get licenseInfo => _licenseInfo;
   String get deviceFingerprint => _deviceFingerprint;
   Map<String, String> get deviceInfo => _deviceInfo;
-  int get trialDaysLeft => _trialDaysLeft;
+  int get trialDaysLeft => 999;
 
   bool get isActivated => true;
   bool get isNotActivated => false;

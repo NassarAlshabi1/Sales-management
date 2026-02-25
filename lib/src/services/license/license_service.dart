@@ -201,14 +201,7 @@ class LicenseService {
 
   /// الحصول على عدد الأيام المتبقية في التجربة
   Future<int> getTrialDaysLeft() async {
-    final prefs = await SharedPreferences.getInstance();
-    final trialStartIso = prefs.getString(_trialStartDateKey);
-    if (trialStartIso == null || trialStartIso.isEmpty) return _trialDays;
-    final start = DateTime.tryParse(trialStartIso);
-    if (start == null) return _trialDays;
-    final elapsed = DateTime.now().difference(start).inDays;
-    final remaining = _trialDays - elapsed;
-    return remaining > 0 ? remaining : 0;
+    return 999;
   }
 
   /// حفظ معلومات العميل
