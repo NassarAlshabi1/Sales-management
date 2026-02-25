@@ -528,7 +528,7 @@ class _DatabaseSettingsDialogState extends State<DatabaseSettingsDialog>
                     });
                     _saveSettings();
                   },
-                  activeThumbColor: Theme.of(context).colorScheme.primary,
+                  activeColor: Theme.of(context).colorScheme.primary,
                 ),
 
                 if (_autoBackupEnabled) ...[
@@ -542,7 +542,7 @@ class _DatabaseSettingsDialogState extends State<DatabaseSettingsDialog>
                   ),
                   const SizedBox(height: 8),
                   DropdownButtonFormField<String>(
-                    initialValue: _autoBackupFrequency,
+                    value: _autoBackupFrequency,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       contentPadding:
