@@ -303,7 +303,7 @@ class _ProductDiscountsScreenState extends State<ProductDiscountsScreen> {
                                   p['name']?.toString() ?? '';
                             }
                             return DropdownButtonFormField<int>(
-                              initialValue: selectedProductId,
+                              value: selectedProductId,
                               decoration: _pill(
                                   context, 'اختر المنتج', Icons.shopping_bag),
                               items: products.map((p) {

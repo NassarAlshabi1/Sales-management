@@ -240,7 +240,7 @@ class _EnhancedSettingsScreenState extends State<EnhancedSettingsScreen> {
                 trailing: Switch(
                   value: themeProvider.isDarkMode,
                   onChanged: (value) => themeProvider.toggleTheme(),
-                  activeThumbColor: Theme.of(context).colorScheme.primary,
+                  activeColor: Theme.of(context).colorScheme.primary,
                 ),
                 onTap: () => themeProvider.toggleTheme(),
                 contentPadding:

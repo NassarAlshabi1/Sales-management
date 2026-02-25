@@ -232,7 +232,7 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
                             ],
                           ),
                           child: DropdownButtonFormField<String>(
-                            initialValue: _selectedCategory,
+                            value: _selectedCategory,
                             decoration: InputDecoration(
                               labelText: 'النوع',
                               labelStyle: TextStyle(
@@ -2146,7 +2146,7 @@ class _ExpenseEditorDialogState extends State<_ExpenseEditorDialog> {
                                   ],
                                 ),
                                 child: DropdownButtonFormField<String>(
-                                  initialValue: _selectedCategory,
+                                  value: _selectedCategory,
                                   style: TextStyle(
                                     fontSize: 16,
                                     color: theme.colorScheme.onSurface,

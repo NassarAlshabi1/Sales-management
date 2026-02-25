@@ -624,7 +624,7 @@ class PrintService {
                       ),
                       const SizedBox(height: 12),
                       DropdownButtonFormField<String>(
-                        initialValue: selectedFormat,
+                        value: selectedFormat,
                         isExpanded: true,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(

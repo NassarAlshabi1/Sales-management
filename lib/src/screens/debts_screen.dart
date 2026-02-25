@@ -1700,7 +1700,7 @@ class DebtsScreenState extends State<DebtsScreen>
 
                           final customers = snapshot.data!;
                           return DropdownButtonFormField<int>(
-                            initialValue: selectedCustomer?['id'],
+                            value: selectedCustomer?['id'],
                             decoration: const InputDecoration(
                               labelText: 'العميل',
                               border: OutlineInputBorder(),
@@ -1894,7 +1894,7 @@ class DebtsScreenState extends State<DebtsScreen>
 
                         final customers = snapshot.data!;
                         return DropdownButtonFormField<int>(
-                          initialValue: selectedCustomer?['id'],
+                          value: selectedCustomer?['id'],
                           decoration: const InputDecoration(
                             labelText: 'العميل',
                             border: OutlineInputBorder(),
@@ -2109,7 +2109,7 @@ class DebtsScreenState extends State<DebtsScreen>
 
                         final customers = snapshot.data!;
                         return DropdownButtonFormField<int>(
-                          initialValue: selectedCustomer?['id'],
+                          value: selectedCustomer?['id'],
                           decoration: const InputDecoration(
                             labelText: 'العميل',
                             border: OutlineInputBorder(),

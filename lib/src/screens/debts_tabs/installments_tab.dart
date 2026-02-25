@@ -130,7 +130,7 @@ class _InstallmentsTabState extends State<InstallmentsTab> {
                 children: [
                   Expanded(
                     child: DropdownButtonFormField<String>(
-                      initialValue: _installmentFilter,
+                      value: _installmentFilter,
                       decoration: InputDecoration(
                         labelText: 'فلترة الأقساط',
                         border: OutlineInputBorder(
