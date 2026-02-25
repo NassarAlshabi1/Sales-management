@@ -2,9 +2,9 @@ name: Flutter Build ARM64
 
 on:
   push:
-    branches: [ fix/build-and-workflow, Sales ]
+    branches: [ Sales2 ]
   pull_request:
-    branches: [ fix/build-and-workflow, Sales ]
+    branches: [ Sales2 ]
   workflow_dispatch:
 
 jobs:
