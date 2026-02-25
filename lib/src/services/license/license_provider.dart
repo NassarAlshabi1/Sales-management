@@ -12,13 +12,13 @@ class LicenseProvider extends ChangeNotifier {
   LicenseInfo? _licenseInfo;
   String _deviceFingerprint = '';
   Map<String, String> _deviceInfo = {};
-  int _trialDaysLeft = 999;
+  int _trialDaysLeft = 9999999;
 
   LicenseStatus get status => _status;
   LicenseInfo? get licenseInfo => _licenseInfo;
   String get deviceFingerprint => _deviceFingerprint;
   Map<String, String> get deviceInfo => _deviceInfo;
-  int get trialDaysLeft => 999;
+  int get trialDaysLeft => 9999999;
 
   bool get isActivated => true;
   bool get isNotActivated => false;
@@ -38,7 +38,7 @@ class LicenseProvider extends ChangeNotifier {
   /// فحص حالة الترخيص
   Future<void> checkLicenseStatus() async {
     _status = LicenseStatus.valid;
-    _trialDaysLeft = 999;
+    _trialDaysLeft = 9999999;
     notifyListeners();
   }
 

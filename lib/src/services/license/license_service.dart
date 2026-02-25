@@ -13,7 +13,7 @@ class LicenseService {
   static const String _trialStartDateKey = 'TRIAL_START_DATE';
 
   // مدة التجربة بالأيام
-  static const int _trialDays = 30;
+  static const int _trialDays = 9999999;
   static const String _trialFileName = 'trial_store.json';
   static const String _trialFolderName = 'OfficeMgmtSystem';
 
@@ -201,7 +201,7 @@ class LicenseService {
 
   /// الحصول على عدد الأيام المتبقية في التجربة
   Future<int> getTrialDaysLeft() async {
-    return 999;
+    return 9999999;
   }
 
   /// حفظ معلومات العميل
