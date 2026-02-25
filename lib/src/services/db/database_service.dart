@@ -1018,8 +1018,8 @@ class DatabaseService {
       // لكن لأجل الاكتفاء الذاتي سنحوّل هنا باستخدام صيغة بسيطة عبر دارت.
       // سنستخدم صيغة مقارنة ثنائية: إذا تخزين سداسي بطول 64 ويماثل هاش الإدخال.
       final hashed = _sha256Hex(password);
-      final isHex64 =
-          RegExp(r'^[a-f0-9]{64} ?$', caseSensitive: false).hasMatch(stored);
+       final isHex64 =
+          RegExp(r'^[a-f0-9]{64}$', caseSensitive: false).hasMatch(stored);
       if (stored == password) {
         matches = true; // توافق نص صريح قديم
       } else if (isHex64 && stored.toLowerCase() == hashed) {

@@ -365,7 +365,7 @@ class _SalesScreenState extends State<SalesScreen> {
                         ),
                       ),
                       child: DropdownButtonFormField<String>(
-                        initialValue: _type,
+                        value: _type,
                         decoration:
                             pill('💳 نوع الدفع', Icons.payments_outlined),
                         items: const [

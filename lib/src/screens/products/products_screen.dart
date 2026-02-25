@@ -311,7 +311,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
         final categories = snapshot.data!;
 
         return DropdownButtonFormField<int>(
-          initialValue: _selectedCategoryId,
+          value: _selectedCategoryId,
           decoration: InputDecoration(
             labelText: 'الفئة',
             border: OutlineInputBorder(
@@ -807,7 +807,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
             ],
           ),
           child: DropdownButtonFormField<int>(
-            initialValue: selectedCategoryId,
+            value: selectedCategoryId,
             menuMaxHeight: 200,
             isDense: true,
             decoration: InputDecoration(
