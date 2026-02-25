@@ -2,9 +2,9 @@ name: Flutter Build ARM64
 
 on:
   push:
-    branches: [ Sales2 ]
+    branches: [ Sales ]
   pull_request:
-    branches: [ Sales2 ]
+    branches: [ Sales ]
   workflow_dispatch:
 
 jobs:
@@ -23,7 +23,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: '3.35.0'
           channel: 'stable'
 
       - name: Get dependencies
