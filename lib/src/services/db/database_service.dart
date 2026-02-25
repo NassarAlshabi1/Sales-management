@@ -188,21 +188,21 @@ class DatabaseService {
       await ensureUser(
         role: 'manager',
         defaultUsername: 'manager',
-        defaultPassword: 'man2026',
+        defaultPassword: '123',
       );
 
       // المشرف
       await ensureUser(
         role: 'supervisor',
-        defaultUsername: 'supervisor',
-        defaultPassword: 'sup2026',
+        defaultUsername: 'admin',
+        defaultPassword: '123',
       );
 
       // الموظف
       await ensureUser(
         role: 'employee',
-        defaultUsername: 'employee',
-        defaultPassword: 'emp2026',
+        defaultUsername: 'admin',
+        defaultPassword: '123',
       );
 
       debugPrint('انتهى فحص وإصلاح المستخدمين الافتراضيين');

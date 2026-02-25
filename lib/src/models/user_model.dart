@@ -269,21 +269,21 @@ class DefaultUsers {
     {
       'name': 'المدير',
       'username': 'manager',
-      // لا نخزن كلمة مرور واضحة هنا
+      'password': '123',
       'role': 'manager',
       'employee_code': 'A1',
     },
     {
       'name': 'المشرف',
-      'username': 'supervisor',
-      // لا نخزن كلمة مرور واضحة هنا
+      'username': 'admin',
+      'password': '123',
       'role': 'supervisor',
       'employee_code': 'S1',
     },
     {
       'name': 'الموظف',
-      'username': 'employee',
-      // لا نخزن كلمة مرور واضحة هنا
+      'username': 'admin',
+      'password': '123',
       'role': 'employee',
       'employee_code': 'C1',
     },

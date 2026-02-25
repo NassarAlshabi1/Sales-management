@@ -24,8 +24,8 @@ class _LoginScreenState extends State<LoginScreen> {
   // بيانات المستخدمين الحقيقية من قاعدة البيانات
   final Map<String, String> _realUsernames = {
     'manager': 'manager',
-    'supervisor': 'supervisor',
-    'employee': 'employee',
+    'supervisor': 'admin',
+    'employee': 'admin',
   };
 
   @override
@@ -63,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
       final lastUsername = prefs.getString('last_username');
 
       if (lastUsername != null && lastUsername.isNotEmpty) {
-        final validUsernames = ['manager', 'supervisor', 'employee'];
+        final validUsernames = ['manager', 'admin'];
 
         if (!validUsernames.contains(lastUsername.toLowerCase())) {
           // احذف القيمة غير الصحيحة
@@ -95,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
       // التحقق من أن اسم المستخدم المحفوظ صحيح
       if (lastUsername != null && lastUsername.isNotEmpty) {
         // قائمة بأسماء المستخدمين الصحيحة
-        final validUsernames = ['manager', 'supervisor', 'employee'];
+        final validUsernames = ['manager', 'admin'];
 
         if (validUsernames.contains(lastUsername.toLowerCase())) {
           _usernameController.text = lastUsername;
@@ -171,10 +171,8 @@ class _LoginScreenState extends State<LoginScreen> {
       // التحقق من الأسماء الافتراضية كبديل
       if (u == 'manager') {
         _selectedUserType = 'manager';
-      } else if (u == 'supervisor') {
+      } else if (u == 'admin') {
         _selectedUserType = 'supervisor';
-      } else if (u == 'employee') {
-        _selectedUserType = 'employee';
       }
     }
     if (mounted) {
@@ -251,10 +249,9 @@ class _LoginScreenState extends State<LoginScreen> {
       case 'manager':
         return 'manager';
       case 'supervisor':
-        return 'supervisor';
       case 'employee':
       default:
-        return 'employee';
+        return 'admin';
     }
   }
 
