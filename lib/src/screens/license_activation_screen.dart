@@ -140,7 +140,7 @@ class _LicenseActivationScreenState extends State<LicenseActivationScreen> {
                                 'أدخل مفتاح الترخيص الذي تم إرساله لك',
                                 style: theme.textTheme.bodyMedium?.copyWith(
                                   color: DarkModeUtils.getTextColor(context)
-                                      .withOpacity(0.7),
+                                      .withValues(alpha: 0.7),
                                 ),
                               ),
 
