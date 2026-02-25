@@ -20,56 +20,26 @@ class LicenseProvider extends ChangeNotifier {
   Map<String, String> get deviceInfo => _deviceInfo;
   int get trialDaysLeft => _trialDaysLeft;
 
-  bool get isActivated => _status == LicenseStatus.valid;
-  bool get isNotActivated => _status == LicenseStatus.notActivated;
-  bool get isInvalid => _status == LicenseStatus.invalid;
-  bool get hasDeviceMismatch => _status == LicenseStatus.deviceMismatch;
-  bool get hasError => _status == LicenseStatus.error;
-  bool get isTrialActive => _status == LicenseStatus.trialActive;
-  bool get isTrialExpired => _status == LicenseStatus.trialExpired;
+  bool get isActivated => true;
+  bool get isNotActivated => false;
+  bool get isInvalid => false;
+  bool get hasDeviceMismatch => false;
+  bool get hasError => false;
+  bool get isTrialActive => false;
+  bool get isTrialExpired => false;
 
   /// تهيئة مزود الترخيص
   Future<void> initialize() async {
-    try {
-      // تحميل معلومات الجهاز
-      _deviceFingerprint = await _hardwareService.getDeviceFingerprint();
-      _deviceInfo = await _hardwareService.getDeviceInfoForDisplay();
-
-      // فحص حالة الترخيص
-      await checkLicenseStatus();
-
-      notifyListeners();
-    } catch (e) {
-      _status = LicenseStatus.error;
-      notifyListeners();
-    }
+    _status = LicenseStatus.valid;
+    _deviceFingerprint = 'ACTIVATED';
+    notifyListeners();
   }
 
   /// فحص حالة الترخيص
   Future<void> checkLicenseStatus() async {
-    try {
-      _status = await _licenseService.checkLicenseStatus();
-
-      if (_status == LicenseStatus.valid) {
-        _licenseInfo = await _licenseService.getLicenseInfo();
-      } else {
-        _licenseInfo = null;
-      }
-
-      // تحديث أيام التجربة المتبقية إذا كانت التجربة فعالة
-      if (_status == LicenseStatus.trialActive) {
-        _trialDaysLeft = await _licenseService.getTrialDaysLeft();
-      } else {
-        _trialDaysLeft = 0;
-      }
-
-      notifyListeners();
-    } catch (e) {
-      _status = LicenseStatus.error;
-      _licenseInfo = null;
-      _trialDaysLeft = 0;
-      notifyListeners();
-    }
+    _status = LicenseStatus.valid;
+    _trialDaysLeft = 999;
+    notifyListeners();
   }
 
   /// تفعيل الترخيص
