@@ -27,14 +27,32 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
-      # 🔥 AUTO FIX ANDROID ERRORS
-      - name: Fix Android Config Automatically
+      # AUTO FIX ALL ANDROID ERRORS
+      - name: Auto Fix Android Backup & SDK Errors
         run: |
-          sed -i 's/compileSdk = 35/compileSdk = 36/g' android/app/build.gradle.kts
-          sed -i 's/targetSdk = 35/targetSdk = 36/g' android/app/build.gradle.kts
-          sed -i 's/android:allowBackup="true"/android:allowBackup="false"/g' android/app/src/main/AndroidManifest.xml
+          sed -i 's/compileSdk = 35/compileSdk = 36/g' android/app/build.gradle.kts || true
+          sed -i 's/targetSdk = 35/targetSdk = 36/g' android/app/build.gradle.kts || true
+          sed -i 's/android:allowBackup="true"/android:allowBackup="false"/g' android/app/src/main/AndroidManifest.xml || true
           mkdir -p android/app/src/main/res/xml
-          echo '<?xml version="1.0" encoding="utf-8"?><full-backup-content/>' > android/app/src/main/res/xml/backup_rules.xml
+
+          cat > android/app/src/main/res/xml/backup_rules.xml <<EOF
+          <?xml version="1.0" encoding="utf-8"?>
+          <full-backup-content/>
+          EOF
+
+          cat > android/app/src/main/res/xml/data_extraction_rules.xml <<EOF
+          <?xml version="1.0" encoding="utf-8"?>
+          <data-extraction-rules>
+              <cloud-backup disableIfNoEncryptionCapabilities="true">
+                  <include domain="database" path="."/>
+                  <include domain="sharedpref" path="."/>
+              </cloud-backup>
+              <device-transfer>
+                  <include domain="database" path="."/>
+                  <include domain="sharedpref" path="."/>
+              </device-transfer>
+          </data-extraction-rules>
+          EOF
 
       - name: Build ARM64 APK
         run: flutter build apk --target-platform android-arm64 --release --no-tree-shake-icons
